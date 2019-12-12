@@ -3,19 +3,21 @@ import csv
 
 # First read and create the graph using the training dataset
 G = nx.Graph()
-with open("data/training.txt", "r") as f:
+with open("../data/training.txt", "r") as f:
     for line in f:
         line = line.split()
         if line[2] == '1':
             G.add_edge(line[0], line[1])
+        else:
+            G.add_nodes_from([line[0], line[1]])
 
 predictions = []
 # For each edge on the testing dataset calculate the jaccard coefficient and use a threshold to decide
-with open("data/testing.txt", "r") as f:
+with open("../data/testing.txt", "r") as f:
     for line in f:
         line = line.split()
         coef = [[u, v, p]for u, v, p in nx.jaccard_coefficient(G, [(line[0], line[1])])][0]
-        if  coef[2] > 0.005:
+        if coef[2] > 0.005:
             predictions.append("1")
         else:
             predictions.append("0")

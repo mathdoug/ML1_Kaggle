@@ -2,9 +2,9 @@ import numpy as np
 import csv
 
 
-with open("data/testing.txt", "r") as f:
+with open("../data/testing.txt", "r") as f:
     reader = csv.reader(f)
-    testing_set  = [line for line in reader]
+    testing_set = [line for line in reader]
 
 ###################
 # random baseline #
@@ -13,7 +13,7 @@ with open("data/testing.txt", "r") as f:
 random_predictions = np.random.choice([0, 1], size=len(testing_set))
 random_predictions = zip(range(len(testing_set)), random_predictions)
 
-with open("data/random_predictions.csv","w") as pred:
+with open("../data/random_predictions.csv","w") as pred:
     csv_out = csv.writer(pred)
     csv_out.writerow(['id','predicted'])
     for row in random_predictions:
