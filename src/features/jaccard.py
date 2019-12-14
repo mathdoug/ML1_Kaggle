@@ -1,5 +1,5 @@
 import networkx as nx
-from src.toGraph.toGraph import toGraph
+from src.setup.toGraph import toGraph
 
 
 def jaccard_coefficient(graph):

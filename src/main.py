@@ -1,4 +1,4 @@
-from src.toGraph.toGraph import toGraph
+from src.setup.toGraph import toGraph
 
 if __name__=="__main__":
     # Taking the graph of training and testing
