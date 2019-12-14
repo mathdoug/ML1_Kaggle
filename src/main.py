@@ -5,6 +5,6 @@ Our program occurs in this file
 """
 
 if __name__=="__main__":
-    # Taking the graph of training
-    G = creation_graph_dataframe()
-    print(G.number_of_nodes())
+    # Taking the graph and the teste of training
+    graph, df = creation_graph_dataframe()
+    print(graph.number_of_nodes())
