@@ -1,4 +1,5 @@
 import networkx as nx
+import os
 
 
 def toGraph():
@@ -10,12 +11,14 @@ def toGraph():
     return:
         graph -> nx.Graph()
     """
-    filename_training = ""
-    if __name__ == "__main__":
-        filename_training += "../../data/training.txt"
-    else:
-        filename_training += "../data/training.txt"
 
+    # Find the location of training.txt
+    filename_training = __file__
+    while os.path.basename(filename_training) != "ML1_Kaggle":
+        filename_training = os.path.dirname(filename_training)
+    filename_training = os.path.join(filename_training, "data", "training.txt")
+
+    # Creation of the graph
     graph_train = nx.Graph()
     with open(filename_training, "r") as f:
         for line in f:
@@ -24,6 +27,7 @@ def toGraph():
                 graph_train.add_edge(line[0], line[1])
             else:
                 graph_train.add_nodes_from([line[0], line[1]])
+
     return graph_train
 
 
