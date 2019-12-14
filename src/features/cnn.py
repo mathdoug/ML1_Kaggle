@@ -1,5 +1,5 @@
 import networkx as nx
-from src.setup.toGraph import toGraph
+from src.setup.creation_graph_dataframe import creation_graph_dataframe
 
 
 def cnn(graph):
@@ -7,4 +7,4 @@ def cnn(graph):
 
 
 if __name__ == "__main__":
-    graph = toGraph()
+    graph = creation_graph_dataframe()

@@ -1,8 +1,9 @@
 import networkx as nx
 import os
+import pandas as pd
 
 
-def toGraph():
+def creation_graph_dataframe():
     """
     Detail:
         The function return the graph of the data training.txt
@@ -28,13 +29,20 @@ def toGraph():
             else:
                 graph_train.add_nodes_from([line[0], line[1]])
 
-    return graph_train
+    # Creation of the data frame
+    df = pd.read_csv(filename_training, sep=" ", header=None)
+    df.columns = ["node_1", "node_2", "output"]
+
+    return graph_train, df
 
 
 if __name__ == "__main__":
-    graph = toGraph()
+    graph, df = creation_graph_dataframe()
     print("The graph of the data training was created.")
     print("Information of the training graph:")
     print("\tNumber of nodes: {}".format(graph.number_of_nodes()))
     print("\tNumber of edges: {}".format(graph.number_of_edges()))
+
+    print("\nData Frame:\n", df.head())
+    print("\nShape:", df.shape)
 
