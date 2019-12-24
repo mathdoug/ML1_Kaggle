@@ -6,13 +6,16 @@ from src.setup.creation_graph_dataframe import creation_graph_dataframe
 def adamic_adar(graph, df):
     aa = []
 
-    for index, row in df.iterrows():
-        for u,v,p in nx.adamic_adar_index(graph,[(row[])])
-
-    for line in f:
+    with open('../../data/training.txt', "r") as f:
+        for line in f:
             line = line.split()
-            for u,v,p in nx.adamic_adar_index(graph, [(line[0], line[1])]):
+            for u, v, p in nx.adamic_adar_index(graph, [(line[0], line[1])]):
                 aa.append(p)
-                print(aa[-1])
-    df['Adamic Adar'] = aa
-    return aa
+
+    df["Adamic-Adar"] = aa
+    return
+
+if __name__ == "__main__":
+    graph, df_train, df_test = creation_graph_dataframe()
+    adamic_adar(graph, df_train)
+    print("com Adamic-Adar: \n", df_train.head())
