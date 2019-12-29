@@ -4,7 +4,8 @@ import os
 import numpy as np
 
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
+#from sklearn.linear_model import LogisticRegression
+from sklearn.neural_network import MLPClassifier
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.ensemble import VotingClassifier
 
@@ -26,12 +27,15 @@ class OurModel:
         self.rf = RandomForestClassifier(n_estimators=20,
                                          max_depth=20,
                                          random_state=0)
-        self.lr = LogisticRegression()
+        self.mlp = MLPClassifier(activation='logistic',
+                                 solver='adam',
+                                 alpha=1e-5,
+                                 hidden_layer_sizes=(5, 2))
         self.gb = GradientBoostingClassifier(n_estimators=100,
                                              learning_rate=1.0,
                                              max_depth=1,
                                              random_state=0)
-        self.voting = VotingClassifier(estimators=[('lr', self.lr), ('rf', self.rf), ('gb', self.gb)], voting='hard')
+        self.voting = VotingClassifier(estimators=[('mlp', self.mlp), ('rf', self.rf), ('gb', self.gb)], voting='hard')
 
         self.columns = ["Jaccard",
                         "Adamic-Adar",

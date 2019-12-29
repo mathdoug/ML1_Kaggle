@@ -27,4 +27,4 @@ if __name__=="__main__":
     pred.index.name = "id"
 
     # CSV
-    pred.to_csv(os.path.join(Setup.path_project(__file__), "data", "predictions.txt"))
+    pred.to_csv(os.path.join(Setup.path_project(__file__), "data", "predictions.csv"))
