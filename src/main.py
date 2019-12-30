@@ -10,10 +10,10 @@ Our program occurs in this file
 
 if __name__=="__main__":
     # Taking the graph and the teste of training
-    graph, df_train, df_test = Setup.creation_graph_dataframe()
+    graph, digraph, df_train, df_test = Setup.creation_graph_dataframe()
 
     # Feature Engineering
-    df_train, df_test = GraphTopology.fit(graph, df_train, df_test)
+    df_train, df_test = GraphTopology.fit(graph, digraph, df_train, df_test)
 
     # Modelling and Evaluation
     ourModel = OurModel()

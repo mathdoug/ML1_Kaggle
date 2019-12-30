@@ -22,13 +22,15 @@ class Setup:
 
         # Creation of the graph_train
         graph = nx.Graph()
+        digraph = nx.DiGraph()
         with open(filename_training, "r") as f:
             for line in f:
                 line = line.split()
+                graph.add_nodes_from([line[0], line[1]])
+                digraph.add_nodes_from([line[0], line[1]])
                 if line[2] == '1':
                     graph.add_edge(line[0], line[1])
-                else:
-                    graph.add_nodes_from([line[0], line[1]])
+                    digraph.add_edge(line[0], line[1])
 
         # Creation of the dataframes
         df_train = pd.read_csv(filename_training, sep=" ", header=None)
@@ -37,7 +39,7 @@ class Setup:
         df_test = pd.read_csv(filename_testing, sep=" ", header=None)
         df_test.columns = ["node_1", "node_2"]
 
-        return graph, df_train, df_test
+        return graph, digraph, df_train, df_test
 
     def get_text(id):
         """
@@ -79,12 +81,13 @@ class Setup:
 
 
 if __name__ == "__main__":
-    graph, df_train, df_test = Setup.creation_graph_dataframe()
+    graph, digraph, df_train, df_test = Setup.creation_graph_dataframe()
 
-    print("The graph of the data training was created.")
-    print("Information of the training graph:")
-    print("\tNumber of nodes: {}".format(graph.number_of_nodes()))
-    print("\tNumber of edges: {}".format(graph.number_of_edges()))
+    print("\n### Graph\n")
+    print(nx.info(graph))
+
+    print("\n### Digraph\n")
+    print(nx.info(digraph))
 
     print("\nData Frame train:\n", df_train.head())
     print("\nShape:", df_train.shape)
