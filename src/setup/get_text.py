@@ -22,7 +22,7 @@ def get_text(id):
     filename = os.path.join(filename, id_text)
 
     # Read the text
-    f = open(filename, "r")
+    f = open(filename, "r", encoding='ISO-8859-1')
     fulltext = f.read()
 
     return fulltext
