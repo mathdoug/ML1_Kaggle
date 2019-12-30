@@ -91,7 +91,6 @@ class GraphTopology:
             hpi = []  # Hub Promoted Index
             hdi = []  # Hub Depressed Index
             lhni = []  # Leicht–Holme–Newman Index
-            disp = []  # dispersion
 
             with open(filename, "r") as f:
                 for line in f:
@@ -117,15 +116,12 @@ class GraphTopology:
                         hdi.append(0)
                         lhni.append(0)
 
-                    disp.append(nx.dispersion(digraph, line[0], line[1]))
-
             df["Common Neighbors"] = cn
             df["Salton Index"] = si
             df["Sorensen Index"] = sorI
             df["Hub Promoted Index"] = hpi
             df["Hub Depressed Index"] = hdi
             df["Leicht–Holme–Newman Index"] = lhni
-            df["Dispersion"] = disp
 
         return df_train, df_test
 
