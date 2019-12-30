@@ -19,8 +19,11 @@ class GraphTopology:
             df_test -> pd.DataFrame()
 
         """
+        print("\n\tmetric_coefficients...\n")
         df_train, df_test = GraphTopology.metric_coefficients(graph, df_train, df_test)
+        print("\n\tneighborhood_coefficients...\n")
         df_train, df_test = GraphTopology.neighborhood_coefficients(graph, df_train, df_test)
+        print("\n\tcoefficients_digraph...\n")
         df_train, df_test = GraphTopology.coefficients_digraph(digraph, df_train, df_test)
         return df_train, df_test
 
@@ -65,7 +68,7 @@ class GraphTopology:
 
         return df_train, df_test
 
-    def neighborhood_coefficients(graph, digraph, df_train, df_test):
+    def neighborhood_coefficients(graph, df_train, df_test):
         """
         Detail:
             It computes the neighborhood coefficients like common neighbors, salton index and sorensen index
@@ -147,9 +150,9 @@ class GraphTopology:
             inf_log = []
             inf_log_2d = []
 
-            ded_2 = []
-            ind_2 = []
-            inf_ql = []
+            # ded_2 = []
+            # ind_2 = []
+            # inf_ql = []
 
             abd = []
 
