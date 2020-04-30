@@ -1,6 +1,6 @@
 # Machine Learning Course - Kaggle Competition
 
-This a project of a group of three students for a Kaggle competition on the Machine Learning course in École Polytechnique
+This a project of a group of three students for a Kaggle competition on the Machine Learning I course in École Polytechnique
 
 Students:
 
