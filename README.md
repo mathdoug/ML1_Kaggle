@@ -4,6 +4,6 @@ This a project of a group of three students for a Kaggle competition on the Mach
 
 Students:
 
-- João Henrique Oliveira
+- (João Henrique Oliveira)[https://github.com/JoaoHenriqueOliveira]
 - Matheus Douglas de Matos Marcondes
-- Vathana Thy
+- (Vathana Thy)[https://github.com/vathanathy]
