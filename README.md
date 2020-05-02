@@ -1,4 +1,4 @@
-# Machine Learning Course - Kaggle Competition
+# Machine Learning Course - Missing Link Project
 
 Link prediction on the French web.
 
